@@ -45,8 +45,8 @@ export class CardInfoComponent implements OnInit, OnDestroy {
       phone: [null, [Validators.required]],
       email: [null, [Validators.required, Validators.email]],
       country: [null, [Validators.required]],
-      state: [null, [Validators.required]],
-      city: [null, [Validators.required]],
+      state: [null],
+      city: [null],
       streetOne: [null, [Validators.required]],
       streetTwo: [null, [Validators.required]],
       cardNumber: [null, [Validators.required]],
@@ -63,7 +63,13 @@ export class CardInfoComponent implements OnInit, OnDestroy {
     this.paymentForm.get('country')?.valueChanges
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(country => {
-        this.isUSA = country === 'United States of America (the)';
+        if (country === 'United States of America (the)') {
+          this.isUSA = true;
+          this.paymentForm.addControl('state', this.fb.control([null, [Validators.required]]));
+        } else {
+          this.isUSA = false;
+          this.paymentForm.removeControl('state');
+        }
       })
   }
 
