@@ -1,0 +1,60 @@
+.card-info {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &-title {
+  }
+
+  &-body {
+    width: 35%;
+    min-width: 450px;
+    margin-bottom: 30px;
+
+    .body-group {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 10px;
+
+      &-item {
+        width: 100%;
+        margin-right: 20px;
+        position: relative;
+
+        .error-message {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 3px;
+          left: 5px;
+          color: red;
+          backdrop-filter: brightness(20%);
+        }
+
+        input {
+          width: 100%;
+        }
+      }
+
+      &-item.invalid {
+        input, input::placeholder {
+          color: transparent;
+        }
+      }
+
+      &-item:last-child {
+        margin-right: 0;
+      }
+    }
+
+    .body-item:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &-actions {
+  }
+}

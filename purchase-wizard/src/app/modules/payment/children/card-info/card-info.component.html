@@ -1,0 +1,130 @@
+<div class="card-info" [formGroup]="paymentForm">
+  <div class="card-info-title">
+    <h2>Credit card info</h2>
+  </div>
+  <div class="card-info-body">
+    <div class="body-group">
+      <div class="body-group-item" *ngIf="paymentForm.get('firstName') as firstName" (click)="firstName?.reset()"
+           [class.invalid]="firstName?.touched && !firstName?.valid">
+        <input type="text" formControlName="firstName" placeholder="First Name">
+        <div class="error-message" *ngIf="firstName?.touched && !firstName?.valid">
+          Field is Required
+        </div>
+      </div>
+      <div class="body-group-item" *ngIf="paymentForm.get('lastName') as lastName" (click)="lastName?.reset()"
+           [class.invalid]="lastName?.touched && !lastName?.valid">
+        <input type="text" formControlName="lastName" placeholder="Last Name">
+        <div class="error-message" *ngIf="lastName?.touched && !lastName?.valid">
+          Field is Required
+        </div>
+      </div>
+    </div>
+    <div class="body-group" *ngIf="paymentForm.get('phone') as phone" (click)="phone?.reset()"
+         [class.invalid]="phone?.touched && !phone?.valid">
+      <div class="body-group-item">
+        <input type="text" formControlName="phone" placeholder="Phone">
+        <div class="error-message" *ngIf="phone?.touched && !phone?.valid">
+          Field is Required
+        </div>
+      </div>
+      <div class="body-group-item" *ngIf="paymentForm.get('email') as email" (click)="email?.reset()"
+           [class.invalid]="email?.touched && !email?.valid">
+        <input type="text" formControlName="email" placeholder="E-mail">
+        <div class="error-message" *ngIf="email?.touched && !email?.valid">
+          Field is Required
+        </div>
+      </div>
+    </div>
+    <div class="body-group">
+      <div class="body-group-item" *ngIf="paymentForm.get('country') as country">
+        <select type="text" formControlName="country" placeholder="Country">
+          <option value="" disabled selected>Select Country</option>
+          <option *ngFor="let country of countries" [value]="country.name">{{country.name}}</option>
+        </select>
+      </div>
+      <div class="body-group" >
+        <div class="body-group-item" *ngIf="isUSA && paymentForm.get('state') as state" (click)="state?.reset()"
+             [class.invalid]="state?.touched && !state?.valid">
+          <input type="text" formControlName="state" placeholder="State">
+          <div class="error-message" *ngIf="state?.touched && !state?.valid">
+            Field is Required
+          </div>
+        </div>
+        <div class="body-group-item" *ngIf="paymentForm.get('city') as city" (click)="city?.reset()"
+             [class.invalid]="city?.touched && !city?.valid">
+          <input type="text" formControlName="city" placeholder="City">
+          <div class="error-message" *ngIf="city?.touched && !city?.valid">
+            Field is Required
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="body-group" *ngIf="paymentForm.get('streetOne') as streetOne" (click)="streetOne?.reset()"
+         [class.invalid]="streetOne?.touched && !streetOne?.valid">
+      <div class="body-group-item">
+        <input type="text" formControlName="streetOne" placeholder="Street One">
+        <div class="error-message" *ngIf="streetOne?.touched && !streetOne?.valid">
+          Field is Required
+        </div>
+      </div>
+      <div class="body-group-item" *ngIf="paymentForm.get('streetTwo') as streetTwo" (click)="streetTwo?.reset()"
+           [class.invalid]="streetTwo?.touched && !streetTwo?.valid">
+        <input type="text" formControlName="streetTwo" placeholder="Street Two">
+        <div class="error-message" *ngIf="streetTwo?.touched && !streetTwo?.valid">
+          Field is Required
+        </div>
+      </div>
+    </div>
+    <div class="body-group" *ngIf="paymentForm.get('cardNumber') as cardNumber" (click)="cardNumber?.reset()"
+         [class.invalid]="cardNumber?.touched && !cardNumber?.valid">
+      <div class="body-group-item">
+        <input type="text" formControlName="cardNumber" placeholder="Card Number">
+        <div class="error-message" *ngIf="cardNumber?.touched && !cardNumber?.valid">
+          Field is Required
+        </div>
+      </div>
+    </div>
+    <div class="body-group" *ngIf="paymentForm.get('month') as month" (click)="month?.reset()"
+         [class.invalid]="month?.touched && !month?.valid">
+      <div class="body-group-item">
+        <input type="text" formControlName="month" placeholder="Month">
+        <div class="error-message" *ngIf="month?.touched && !month?.valid">
+          Field is Required
+        </div>
+      </div>
+      <div class="body-group-item" *ngIf="paymentForm.get('year') as year" (click)="year?.reset()"
+           [class.invalid]="year?.touched && !year?.valid">
+        <input type="text" formControlName="year" placeholder="Year">
+        <div class="error-message" *ngIf="year?.touched && !year?.valid">
+          Field is Required
+        </div>
+      </div>
+      <div class="body-group-item" *ngIf="paymentForm.get('ccvCode') as ccvCode" (click)="ccvCode?.reset()"
+           [class.invalid]="ccvCode?.touched && !ccvCode?.valid">
+        <input type="text" formControlName="ccvCode" placeholder="CCV Code">
+        <div class="error-message" *ngIf="ccvCode?.touched && !ccvCode?.valid">
+          Field is Required
+        </div>
+      </div>
+    </div>
+    <div class="body-group" *ngIf="paymentForm.get('zipCode') as zipCode" (click)="zipCode?.reset()"
+         [class.invalid]="zipCode?.touched && !zipCode?.valid">
+      <div class="body-group-item">
+        <input type="text" formControlName="zipCode" placeholder="Zip Code">
+        <div class="error-message" *ngIf="zipCode?.touched && !zipCode?.valid">
+          Field is Required
+        </div>
+      </div>
+      <div class="body-group-item" *ngIf="paymentForm.get('cardType') as cardType" (click)="cardType?.reset()"
+           [class.invalid]="cardType?.touched && !cardType?.valid">
+        <input type="text" formControlName="cardType" placeholder="Card Type">
+        <div class="error-message" *ngIf="cardType?.touched && !cardType?.valid">
+          Field is Required
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-info-actions">
+    <button type="submit" (click)="viewOrder()">View Order</button>
+  </div>
+</div>

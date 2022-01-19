@@ -1,8 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subject, takeUntil } from "rxjs";
 
-import { DataService } from "../../../services/data.service";
+import { DataService } from "../../../services/data/data.service";
+
 import { ICardData, ICardsData } from "../../../shared/card/card.interfaces";
+import { PaymentService } from "../../../services/payment/payment.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-plan-selection',
@@ -17,7 +20,11 @@ export class PlanSelectionComponent implements OnInit, OnDestroy {
   public enterpriseHighestPriceIndex: number | null;
   public active = 1;
 
-  constructor(private dataService: DataService) {
+  constructor(
+    private dataService: DataService,
+    private paymentService: PaymentService,
+    private router: Router
+  ) {
   }
 
   ngOnInit(): void {
@@ -58,5 +65,6 @@ export class PlanSelectionComponent implements OnInit, OnDestroy {
 
   buyCard(cardData: ICardData): void {
     console.log(cardData);
+    this.router.navigate(['/payment']);
   }
 }
