@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from "rxjs";
 
-import { ICardData } from "../../shared/card/card.interfaces";
-import {IPaymentData} from "../../modules/payment/payment.interfaces";
+import { ICardData } from '../../shared/card/card.interfaces';
+import { IPaymentData } from '../../modules/payment/payment.interfaces';
 
 @Injectable({
   providedIn: 'root'

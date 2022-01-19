@@ -84,7 +84,7 @@
         </div>
       </div>
     </div>
-    <div class="body-group" *ngIf="paymentForm.get('month') as month" (click)="month?.reset()"
+    <div class="body-group" *ngIf="paymentForm.get('month') as month"
          [class.invalid]="month?.touched && !month?.valid">
       <div class="body-group-item">
         <input type="text" formControlName="month" placeholder="Month">
@@ -92,14 +92,14 @@
           Field is Required
         </div>
       </div>
-      <div class="body-group-item" *ngIf="paymentForm.get('year') as year" (click)="year?.reset()"
+      <div class="body-group-item" *ngIf="paymentForm.get('year') as year"
            [class.invalid]="year?.touched && !year?.valid">
         <input type="text" formControlName="year" placeholder="Year">
         <div class="error-message" *ngIf="year?.touched && !year?.valid">
           Field is Required
         </div>
       </div>
-      <div class="body-group-item" *ngIf="paymentForm.get('ccvCode') as ccvCode" (click)="ccvCode?.reset()"
+      <div class="body-group-item" *ngIf="paymentForm.get('ccvCode') as ccvCode"
            [class.invalid]="ccvCode?.touched && !ccvCode?.valid">
         <input type="text" formControlName="ccvCode" placeholder="CCV Code">
         <div class="error-message" *ngIf="ccvCode?.touched && !ccvCode?.valid">
@@ -107,7 +107,7 @@
         </div>
       </div>
     </div>
-    <div class="body-group" *ngIf="paymentForm.get('zipCode') as zipCode" (click)="zipCode?.reset()"
+    <div class="body-group" *ngIf="paymentForm.get('zipCode') as zipCode"
          [class.invalid]="zipCode?.touched && !zipCode?.valid">
       <div class="body-group-item">
         <input type="text" formControlName="zipCode" placeholder="Zip Code">
@@ -115,7 +115,7 @@
           Field is Required
         </div>
       </div>
-      <div class="body-group-item" *ngIf="paymentForm.get('cardType') as cardType" (click)="cardType?.reset()"
+      <div class="body-group-item" *ngIf="paymentForm.get('cardType') as cardType"
            [class.invalid]="cardType?.touched && !cardType?.valid">
         <input type="text" formControlName="cardType" placeholder="Card Type">
         <div class="error-message" *ngIf="cardType?.touched && !cardType?.valid">

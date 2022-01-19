@@ -13,6 +13,7 @@ export class PaymentResultComponent implements OnInit {
   ngOnInit(): void {
   }
   viewResult(): void {
+
     this.router.navigate(['/'])
   }
 
