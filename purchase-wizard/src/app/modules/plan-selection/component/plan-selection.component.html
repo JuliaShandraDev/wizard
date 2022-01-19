@@ -1,0 +1,31 @@
+<div class="plan-section">
+  <div class="plan-section-body">
+    <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+      <li [ngbNavItem]="1">
+        <a ngbNavLink>Personal</a>
+        <ng-template ngbNavContent>
+          <div class="cards-body">
+            <app-card *ngFor="let card of cardsData?.personal; index as i" (submitCard)="buyCard(card)"
+                      [cardData]="card"
+                      [isBestOffer]="i === personalHighestPriceIndex">
+            </app-card>
+          </div>
+        </ng-template>
+      </li>
+      <li [ngbNavItem]="2">
+        <a ngbNavLink>Enterprise</a>
+        <ng-template ngbNavContent>
+          <div class="cards-body">
+            <app-card *ngFor="let card of cardsData?.enterprise; index as i" (submitCard)="buyCard(card)"
+                      [cardData]="card"
+                      [isBestOffer]="i === enterpriseHighestPriceIndex">
+            </app-card>
+          </div>
+        </ng-template>
+      </li>
+    </ul>
+
+    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+  </div>
+</div>
+

@@ -1,0 +1,20 @@
+.plan-section {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+:host::ng-deep {
+  .nav-tabs.nav {
+    justify-content: center;
+  }
+
+  .cards-body {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+
+    app-card {
+      width: 100%;
+    }
+  }
+}

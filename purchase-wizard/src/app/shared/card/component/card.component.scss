@@ -1,0 +1,30 @@
+.card {
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+  .card-best-offer {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &-title, &-price {
+    font-weight: bold;
+  }
+
+  &-title {
+    font-size: 24px;
+  }
+
+  &-points {
+    align-self: flex-start;
+  }
+
+  &-actions {
+    align-self: flex-end;
+  }
+}
