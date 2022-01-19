@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import {ICardsData} from "../shared/card/card.interfaces";
+import {ICardsData} from "../../shared/card/card.interfaces";
 import { Observable } from "rxjs";
 
 @Injectable({

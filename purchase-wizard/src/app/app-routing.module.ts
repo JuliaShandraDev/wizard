@@ -8,8 +8,17 @@ const routes: Routes = [
     component: AppComponent,
     children: [
       {
+        path: '',
+        redirectTo: 'plan-selection',
+        pathMatch: 'full'
+      },
+      {
         path: 'plan-selection',
         loadChildren: () => import('./modules/plan-selection/plan-selection.module').then(m => m.PlanSelectionModule)
+      },
+      {
+        path: 'payment',
+        loadChildren: () => import('./modules/payment/payment.module').then(m => m.PaymentModule)
       }
     ]
   }
