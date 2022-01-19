@@ -65,6 +65,7 @@ export class PlanSelectionComponent implements OnInit, OnDestroy {
 
   buyCard(cardData: ICardData): void {
     console.log(cardData);
+    this.paymentService.cardInfo$.next(cardData);
     this.router.navigate(['/payment']);
   }
 }

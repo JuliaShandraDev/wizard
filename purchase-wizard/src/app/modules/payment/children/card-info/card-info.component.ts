@@ -1,10 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {BehaviorSubject, Subject, takeUntil} from "rxjs";
+import {BehaviorSubject, Observable, Subject, takeUntil} from "rxjs";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 
 import {PaymentService} from "../../../../services/payment/payment.service";
-import {ICardData} from "../../../../shared/card/card.interfaces";
+import {ICardData, ICardsData} from "../../../../shared/card/card.interfaces";
 import {countries, ICountries} from "../../../../services/country/country.service";
 
 @Component({
@@ -13,6 +13,7 @@ import {countries, ICountries} from "../../../../services/country/country.servic
   styleUrls: ['./card-info.component.scss']
 })
 export class CardInfoComponent implements OnInit, OnDestroy {
+  public userData$: Observable<ICardData>;
   public cardData$: BehaviorSubject<ICardData | null>;
   public unsubscribe$: Subject<void> = new Subject<void>();
   public paymentForm: FormGroup;
@@ -77,6 +78,7 @@ export class CardInfoComponent implements OnInit, OnDestroy {
     const validForm = this.paymentForm.valid;
     console.log('viewOrder', validForm);
     if (validForm) {
+      this.paymentService.paymentInfo$.next(this.paymentForm.value);
       this.router.navigate(['/payment/info-preview'])
     }
   }

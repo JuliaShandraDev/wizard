@@ -1,1 +1,40 @@
-<p>info-preview works!</p>
+<div class="container" *ngIf="(cardData$ | async) as cardData">
+<h1>Order preview</h1>
+
+  <table class="table table-striped" *ngIf="(paymentData$ | async) as paymentData">
+    <tbody>
+    <tr>
+      <th scope="row">Subscription name :</th>
+      <td>
+        {{ cardData?.title }}
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Currency :</th>
+      <td>
+        EUR
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Price :</th>
+      <td>
+        {{ cardData?.price }}
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Card number :</th>
+      <td>
+        {{ '************' + paymentData.cardNumber.toString().substr(-4)}}
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Card type :</th>
+      <td>
+        {{ paymentData?.cardType }}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+<button class="btn btn-outline-primary" (click)="viewResult()">Buy</button>
+</div>
+
