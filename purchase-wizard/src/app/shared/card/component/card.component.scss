@@ -5,11 +5,16 @@
   flex-direction: column;
   align-items: center;
   position: relative;
+  margin: 10px;
 
   .card-best-offer {
     position: absolute;
     right: 0;
     top: 0;
+    .color{
+      color: red;
+      margin-right: 5px;
+    }
   }
 
   &-title, &-price {
@@ -25,6 +30,7 @@
   }
 
   &-actions {
-    align-self: flex-end;
+    align-self: center;
+
   }
 }

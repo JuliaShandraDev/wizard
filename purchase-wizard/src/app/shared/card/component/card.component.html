@@ -1,6 +1,6 @@
 <div class="card">
   <div *ngIf="isBestOffer" class="card-best-offer">
-    <i class="fas fa-burn"></i>Best Offer!
+    <i class="fas fa-burn color"></i>Best Offer!
   </div>
   <div class="card-title">
     {{ cardData?.title }}
@@ -13,7 +13,7 @@
       <li *ngFor="let point of cardData?.chooseList">{{ point }}</li>
     </ul>
   </div>
-  <div class="card-actions">
-    <button (click)="onSubmitCard()">Buy item</button>
+  <div class="card-action">
+    <button class="btn btn-outline-primary" (click)="onSubmitCard()">Buy item</button>
   </div>
 </div>
